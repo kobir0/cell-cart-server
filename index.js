@@ -299,9 +299,9 @@ app.put("/orders/:id", async (req, res) => {
   }
 });
 
-app.get("/myOrders/:id", async (req, res) => {
+app.get("/orders", async (req, res) => {
   try {
-    const email = req.params.id;
+    const email = req.query.email;
 
     const orders = await Orders.find({ email: email }).toArray();
     res.send({
